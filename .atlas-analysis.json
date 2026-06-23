@@ -1,17 +1,11 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
+  "projectType": "saas",
+  "projectName": "Camino",
+  "projectDescription": "Camino is an employee onboarding platform that delivers personalized onboarding experiences to help new hires ramp up faster and feel welcome from day one.",
   "theme": "almond",
-  "name": "Camino",
-  "colors": {
-    "primary": "#848c8e",
-    "light": "#11161e",
-    "dark": "#cfd0d2"
-  },
-  "favicon": "https://media.brand.dev/2b01fe20-c04b-4a1d-a2f9-1d2789c50a7a.jpg",
-  "logo": {
-    "light": "https://media.brand.dev/5ffd6ce4-2434-4b4b-920a-f8cacac8b48b.svg",
-    "dark": "https://media.brand.dev/5ffd6ce4-2434-4b4b-920a-f8cacac8b48b.svg"
-  },
+  "primaryColor": "#848c8e",
+  "lightColor": "#11161e",
+  "darkColor": "#cfd0d2",
   "navigation": {
     "tabs": [
       {
@@ -63,22 +57,22 @@
       }
     ]
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@joincamino.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Get Started",
-      "href": "https://app.joincamino.com"
-    }
-  },
-  "footer": {
-    "socials": {
-      "linkedin": "https://www.linkedin.com/company/joincamino/"
-    }
-  }
+  "keyFeatures": [
+    "Personalized onboarding journeys tailored by role, team, and location",
+    "Customizable onboarding templates and task checklists",
+    "Automated workflows to trigger tasks on key dates",
+    "New hire portal with step-by-step guided experience",
+    "Team introductions and people connections",
+    "HRIS, Slack, and Google Workspace integrations",
+    "Admin dashboard for tracking onboarding progress",
+    "Preboarding support before day one"
+  ],
+  "publicApiSurface": [
+    "Onboarding templates (create, edit, assign)",
+    "Employee profiles and task assignments",
+    "Automated workflow triggers",
+    "HRIS sync (import employees)",
+    "Slack notifications and reminders",
+    "Progress tracking dashboard"
+  ]
 }

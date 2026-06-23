@@ -1,0 +1,143 @@
+---
+title: "Add and Manage Employees in Camino"
+sidebarTitle: "Employees"
+description: "Learn how to add new hires manually or via HRIS import, set up employee profiles, assign templates, and track onboarding from start to finish."
+---
+
+Every onboarding journey in Camino starts with an employee record. Whether you're adding a single new hire the morning before their start date or importing a cohort of fifty from your HRIS, Camino gives you a clear picture of who is onboarding, where they are in the process, and what still needs attention. Navigate to **Employees** in the left-hand menu to see your full employee list and manage records.
+
+---
+
+## Adding Employees Manually
+
+Adding a new hire by hand takes under two minutes and is the right choice for one-off hires or situations where your HRIS isn't connected yet.
+
+<Steps>
+  <Step title="Open the Add Employee Form">
+    From the **Employees** page, click **+ Add Employee** in the top-right corner.
+  </Step>
+  <Step title="Enter Basic Information">
+    Fill in the required fields:
+    - **First Name** and **Last Name**
+    - **Work Email** — this is the address Camino uses to send the new hire's portal invite
+    - **Start Date** — all relative task due dates and workflow triggers are calculated from this date
+  </Step>
+  <Step title="Set the Role and Department">
+    Enter the new hire's **Job Title**, select their **Department** from the dropdown, and choose their **Location** (office, remote, or hybrid). These fields determine which template defaults apply and can be used as conditions in automated workflows.
+  </Step>
+  <Step title="Assign a Manager">
+    Select the new hire's direct manager from the **Manager** dropdown. The manager must already have a Camino account. Once assigned, the manager can see this employee's onboarding progress and will receive manager-specific task notifications.
+  </Step>
+  <Step title="Assign a Buddy (Optional)">
+    Choose an existing employee to serve as the new hire's onboarding buddy. The buddy's name, photo, and a short bio appear in the new hire's portal, giving them a friendly first point of contact before day one.
+  </Step>
+  <Step title="Assign an Onboarding Template">
+    Select the template that best matches this employee's role or department. If you've set a default template for their role, it will be pre-selected. You can swap templates up until onboarding has started.
+  </Step>
+  <Step title="Save and Send Invite">
+    Click **Save Employee**. Camino creates the employee record and, if the start date is within your preboarding window, immediately sends the portal invite to the new hire's work email.
+  </Step>
+</Steps>
+
+<Tip>
+  If your company hires more than a handful of people per quarter, connecting your HRIS saves significant manual work. Camino syncs new hire records automatically so employees appear in Camino the moment they're added in your HR system. See [HRIS Integrations](/integrations/hris) for setup instructions.
+</Tip>
+
+---
+
+## Importing Employees from Your HRIS
+
+Camino integrates with major HRIS platforms including BambooHR, Workday, Rippling, and Gusto. Once the integration is configured, new employees added in your HRIS are synced to Camino automatically — no manual data entry required.
+
+To trigger a manual sync or review import history, go to **Settings → Integrations → HRIS** and click **Sync Now**. Camino maps standard HRIS fields (name, email, start date, department, job title, manager) to the corresponding Camino profile fields. You can review and adjust the field mapping at any time.
+
+<Note>
+  HRIS imports create employee records in Camino but do **not** automatically assign an onboarding template or send a portal invite. After import, review each new record and assign a template before the portal invite is triggered. You can automate this step with a workflow — see [Automated Workflows](/admin/automated-workflows).
+</Note>
+
+---
+
+## Employee Profile Fields
+
+Each employee profile contains a set of fields that directly shape their onboarding experience.
+
+| Field | Purpose |
+|---|---|
+| **First Name / Last Name** | Displayed in the portal and used in dynamic template fields like `{{first_name}}` |
+| **Work Email** | Used for portal login and all system-generated emails |
+| **Start Date** | Anchor point for all relative due dates and time-based workflow triggers |
+| **Job Title** | Shown in the portal and used to match role-based template defaults |
+| **Department** | Used for workflow conditions and filtering in the employee list |
+| **Location** | Office, remote, or hybrid — can be used as a workflow filter |
+| **Manager** | Receives manager task notifications; their name populates `{{manager_name}}` in templates |
+| **Buddy** | Shown in the new hire portal as the go-to peer contact |
+| **Onboarding Template** | Defines the tasks, resources, and content this employee sees |
+| **Status** | System-managed: Not Started → In Progress → Completed |
+
+---
+
+## Assigning an Onboarding Template
+
+You can assign or change a template from the employee's profile at any time before onboarding is marked complete.
+
+1. Open the employee record and click the **Onboarding** tab.
+2. Under **Template**, click **Change Template**.
+3. Select the new template from the list and click **Apply**.
+
+If onboarding is already in progress and you swap templates, Camino preserves any tasks the new hire has already completed and adds the new template's remaining tasks going forward.
+
+---
+
+## Setting a Buddy
+
+An onboarding buddy is an existing employee who serves as a peer guide for the new hire. The buddy's profile card — including their name, photo, role, and a short bio — appears prominently in the new hire's portal.
+
+To assign a buddy, open the employee record, scroll to **Buddy**, and click **Assign Buddy**. Search for any active employee in your workspace and select them. The buddy does not need an admin account; they appear as a contact in the new hire portal only.
+
+<Tip>
+  Write a short, personal bio for each buddy (under **Team Members → Edit Profile**) before assigning them. A photo and a sentence about their background makes the introduction feel warm and human rather than transactional.
+</Tip>
+
+---
+
+## Editing Employee Details After Onboarding Starts
+
+You can update most profile fields at any time, even after onboarding has begun. Changes to **Start Date** will recalculate all relative task due dates and may retrigger time-based workflows, so update this field carefully.
+
+Fields like **Manager** and **Buddy** can be changed freely and take effect immediately — the new hire's portal updates in real time.
+
+---
+
+## Archiving or Offboarding an Employee
+
+When an employee leaves or an onboarding record is no longer needed, you can archive it to remove it from active views without permanently deleting the data.
+
+1. Open the employee record.
+2. Click the **⋯** menu in the top-right corner and select **Archive Employee**.
+3. Confirm the action. The record moves to the **Archived** tab in your employee list.
+
+Archived employees cannot log into their portal and no further workflow triggers will fire. To restore an archived record, go to **Employees → Archived** and click **Restore**.
+
+<Warning>
+  Archiving an employee is not the same as deleting them. All task completion history and profile data are retained. If you need to permanently delete a record for compliance reasons (e.g., GDPR right to erasure), contact [support@camino.app](mailto:support@camino.app).
+</Warning>
+
+---
+
+## The Employee List View
+
+The **Employees** page shows every active employee in a table with their name, department, start date, assigned template, and current status. Use the filters at the top of the list to narrow your view.
+
+<CardGroup cols={3}>
+  <Card title="Not Started" icon="circle">
+    The employee has been added to Camino but their start date hasn't arrived yet, or their portal invite hasn't been accepted. Preboarding content may already be visible to them.
+  </Card>
+  <Card title="In Progress" icon="circle-half-stroke">
+    The employee's start date has passed and at least one task has been completed or is due. This is the active onboarding phase.
+  </Card>
+  <Card title="Completed" icon="circle-check">
+    All required tasks across all template sections have been marked complete. Camino automatically moves the employee to this status and notifies assigned admins.
+  </Card>
+</CardGroup>
+
+You can also filter by **Department**, **Manager**, **Template**, and **Start Date Range** to focus on a specific cohort. Click any employee's name to open their detailed onboarding progress view, where you can see every task, its status, and any overdue items.

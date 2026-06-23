@@ -1,0 +1,169 @@
+---
+title: "Build Onboarding Templates for Every Role"
+sidebarTitle: "Templates"
+description: "Create reusable onboarding blueprints organized by role, department, or location — with dynamic fields, preboarding sections, and rich content blocks."
+---
+
+Templates are the engine behind Camino's personalized onboarding. Instead of building a unique checklist for every new hire from scratch, you create a reusable blueprint once — organized by role, department, or location — and Camino applies it automatically when a new employee is added. When templates are set up well, every new hire gets a consistent, thoughtful experience without your team lifting a finger each time. Navigate to **Templates** in the left-hand menu to create and manage your blueprints.
+
+---
+
+## When to Create Multiple Templates
+
+One template is enough for a small team with similar roles, but most growing companies benefit from several. Create a separate template whenever a group of new hires has meaningfully different tasks, introductions, or content.
+
+Common reasons to create multiple templates:
+
+- **By role** — an Engineering template vs. a Sales template vs. a Marketing template
+- **By department** — each department has its own tools, processes, and team intros
+- **By location** — remote employees have different day-one logistics than on-site employees
+- **By seniority** — individual contributors vs. managers often have different first-week priorities
+
+---
+
+## Creating Your First Template
+
+<Steps>
+  <Step title="Click 'New Template'">
+    From the **Templates** page, click **+ New Template**. Give your template a clear, internal name (e.g., "Engineering — Remote" or "Sales AE — North America"). This name is visible only to admins, not to new hires.
+  </Step>
+  <Step title="Set the Target Role and Department">
+    Select the **Role** and **Department** this template is designed for. Camino uses these fields to suggest this template automatically when a new employee with a matching profile is added. You can always assign a template manually regardless of these defaults.
+  </Step>
+  <Step title="Add Your First Section">
+    Click **+ Add Section** and name it. Sections are logical phases of onboarding — for example, **Preboarding**, **Week 1**, **Week 2**, and **First 30 Days**. You'll organize all tasks, resources, and content blocks within sections.
+  </Step>
+  <Step title="Add Content Blocks to Each Section">
+    Inside each section, click **+ Add Block** to choose from the available content types: Task, Welcome Message, Resource Link, Video, or Team Introduction. Repeat for each piece of content in that phase.
+  </Step>
+  <Step title="Personalize with Dynamic Fields">
+    As you write task descriptions and welcome messages, insert dynamic fields (see [Dynamic Fields](#dynamic-fields) below) so the content resolves to each new hire's personal details at runtime.
+  </Step>
+  <Step title="Preview the Template">
+    Click **Preview** in the top-right corner to see exactly what a new hire will see, with sample data substituted for dynamic fields. Use this to catch formatting issues before assigning the template to a real employee.
+  </Step>
+  <Step title="Save and Activate">
+    Click **Save Template**. The template is now available to assign to any employee. If you want it to be the default for a particular role, click **Set as Default for Role** from the template's settings menu.
+  </Step>
+</Steps>
+
+---
+
+## Template Sections
+
+Sections let you organize a template into phases that mirror the real onboarding journey. Think of sections as chapters — each one has a name, an optional description, and a collection of content blocks.
+
+Good section names give new hires a clear sense of what each phase is about:
+
+| Suggested Section | Timeframe | Typical Content |
+|---|---|---|
+| Preboarding | Before start date | Welcome message, paperwork tasks, IT setup |
+| Week 1 | Days 1–5 | Team introductions, tool access, first meetings |
+| First 30 Days | Days 6–30 | Role-specific training, initial projects, manager check-in |
+| Days 30–60 | Days 31–60 | Deep-dive learning, relationship building |
+| Days 60–90 | Days 61–90 | Performance goals, 90-day review prep |
+
+Sections are displayed to new hires in the order you arrange them. Drag and drop sections to reorder them from the template editor.
+
+---
+
+## Content Block Types
+
+Every section can hold any number of content blocks. Click **+ Add Block** inside a section and choose from the following types.
+
+<CardGroup cols={2}>
+  <Card title="Task" icon="circle-check">
+    An actionable item with a title, description, due date, assignee, and optional file attachment. Tasks can be marked as required or optional. See [Tasks and Checklists](/admin/tasks-and-checklists) for full details.
+  </Card>
+  <Card title="Welcome Message" icon="hand-wave">
+    A rich-text message displayed at the top of the new hire's portal. Ideal for a personal note from the CEO or hiring manager. Supports dynamic fields.
+  </Card>
+  <Card title="Resource Link" icon="link">
+    A titled link to an external URL — your employee handbook, benefits portal, Notion wiki, or any other resource. Displayed as a clickable card in the new hire's portal.
+  </Card>
+  <Card title="Video" icon="video">
+    Embed a YouTube or Vimeo URL. Videos play inline in the new hire's portal. Great for culture videos, product demos, or recorded team introductions.
+  </Card>
+  <Card title="Team Introduction" icon="users">
+    Showcases a group of teammates the new hire should meet. Each team member card shows their photo, name, role, and a short bio. Pull from existing Camino team members or add one-time contacts.
+  </Card>
+  <Card title="File Attachment" icon="paperclip">
+    Upload a PDF or document that the new hire can download — org charts, office maps, equipment request forms, and so on.
+  </Card>
+</CardGroup>
+
+---
+
+## Preboarding Section
+
+The preboarding section is special: its content is delivered to new hires **before** their official start date. Use it to build excitement, collect paperwork, and handle IT setup so day one can focus on people and culture rather than logistics.
+
+Preboarding tasks are available to new hires as soon as their portal invite is sent (configurable from **Settings → Workspace → Preboarding Window**). By default, invites go out 7 days before the start date.
+
+Typical preboarding content includes:
+
+- Welcome video from the CEO or team
+- Links to complete payroll and benefits paperwork
+- IT setup instructions (laptop delivery confirmation, account creation)
+- Pre-reading: company handbook, product overview
+- Introduction to their buddy
+
+---
+
+## Dynamic Fields
+
+Dynamic fields are placeholders you write into any text-based content block (tasks, welcome messages, resource descriptions). When a new hire views the content, Camino automatically replaces each placeholder with the real value from their employee profile.
+
+<Tip>
+  Use `{{first_name}}` in your welcome message subject and opening line — receiving a message that uses your actual name is a small but meaningful touch that sets a personal tone from the very first interaction.
+</Tip>
+
+The table below shows every available dynamic field and what it resolves to at runtime.
+
+| Dynamic Field | Resolves To |
+|---|---|
+| `{{first_name}}` | The new hire's first name |
+| `{{last_name}}` | The new hire's last name |
+| `{{full_name}}` | The new hire's full name |
+| `{{start_date}}` | The new hire's start date (formatted as Month DD, YYYY) |
+| `{{role}}` | The new hire's job title |
+| `{{department}}` | The new hire's department |
+| `{{location}}` | The new hire's location (office, remote, or hybrid) |
+| `{{manager_name}}` | The full name of the new hire's assigned manager |
+| `{{manager_email}}` | The work email of the new hire's assigned manager |
+| `{{buddy_name}}` | The full name of the new hire's assigned buddy |
+| `{{company_name}}` | Your company name as set in Workspace Settings |
+
+If a field resolves to an empty value (for example, no buddy has been assigned), Camino replaces the placeholder with a blank string. Review your content in **Preview** mode to confirm all fields resolve as expected before assigning the template.
+
+---
+
+## Duplicating and Editing Templates
+
+To create a new template based on an existing one, open the template and click **⋯ → Duplicate**. Camino creates an exact copy with "Copy of" prepended to the name. Rename it, adjust the sections and content blocks, and save.
+
+You can edit any template at any time. Changes to a template take effect for employees assigned to it going forward. Employees already mid-onboarding are not affected by template edits unless you explicitly re-apply the template from their profile.
+
+---
+
+## Assigning a Template to an Employee
+
+You can assign a template in two ways:
+
+1. **During employee creation** — select the template from the **Onboarding Template** dropdown when adding the employee.
+2. **From the employee profile** — open any employee record, go to the **Onboarding** tab, and click **Change Template**.
+
+To set a template as the automatic default for a role, open the template, click **⋯ → Set as Default**, and choose the role from the dropdown. Any new employee added with that role will have this template pre-selected.
+
+---
+
+## Template Preview Mode
+
+Before assigning a template to real employees, use **Preview** mode to see it through the eyes of a new hire. Click **Preview** in the top-right corner of the template editor. Camino renders the full portal experience with sample data substituted for dynamic fields — you'll see the exact layout, section order, task list, and embedded content as a new hire would.
+
+Use preview mode to:
+
+- Confirm dynamic fields resolve to readable, well-formatted text
+- Verify all links open the correct URLs
+- Check that section names and task descriptions are clear and free of typos
+- Ensure videos and file attachments load correctly

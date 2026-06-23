@@ -1,0 +1,45 @@
+---
+title: "Connect Camino to Your Existing Tools"
+sidebarTitle: "Overview"
+description: "Integrate Camino with your HRIS, Slack, and Google Workspace to keep onboarding in sync and eliminate manual data entry."
+---
+
+Camino works best when it's connected to the tools your team already uses. Instead of manually copying employee records from your HR system or remembering to send welcome messages on day one, integrations let Camino handle that automatically — so your team spends less time on logistics and more time making new hires feel at home.
+
+## Why integrations matter
+
+Every disconnected tool is a place where things fall through the cracks. When your HRIS, messaging platform, and productivity suite all talk to Camino, you get a single, consistent onboarding experience that stays in sync without extra effort. Employee data flows in automatically, notifications go out at the right time, and resources are always where new hires expect to find them.
+
+## Available integrations
+
+<CardGroup cols={3}>
+  <Card title="HRIS" icon="users" href="/integrations/hris">
+    Connect BambooHR, Workday, ADP, Rippling, or Gusto to automatically create Camino records when someone is hired and keep employee data in sync.
+  </Card>
+  <Card title="Slack" icon="slack" href="/integrations/slack">
+    Send automated welcome messages, manager notifications, and task reminders directly inside your team's Slack workspace.
+  </Card>
+  <Card title="Google Workspace" icon="google" href="/integrations/google-workspace">
+    Add new hires to Google Groups, share Drive resources in the portal, and auto-schedule calendar invites for intro meetings.
+  </Card>
+</CardGroup>
+
+## Managing integrations
+
+All integrations live in one place. To view, connect, or configure any integration, go to **Settings → Integrations**. Each integration card shows its current connection status — **Connected**, **Not connected**, or **Needs attention** if a credential has expired or a permission has been revoked.
+
+From the integrations dashboard you can:
+
+- **Connect** a new integration by clicking its card and following the setup steps.
+- **Configure** an existing integration to adjust field mappings, notification rules, or sync preferences.
+- **Disconnect** an integration at any time without losing your Camino data.
+
+## How connections are secured
+
+Camino uses **OAuth 2.0** to connect with third-party platforms wherever it is supported. With OAuth, you authorize Camino directly through your provider's own login screen — Camino never sees or stores your password. For providers that use API keys instead of OAuth, keys are encrypted at rest and are never exposed in the Camino interface after initial setup.
+
+Camino requests only the minimum permissions required for each integration to function. You can review the exact permission scopes on each integration's setup page before granting access.
+
+<Note>
+  Don't see the integration you need? Camino is always expanding its integration library. Reach out to [support@camino.com](mailto:support@camino.com) to request a new integration or ask about a custom connection via the Camino API.
+</Note>

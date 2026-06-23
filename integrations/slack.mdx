@@ -1,0 +1,63 @@
+---
+title: "Send Onboarding Notifications via Slack"
+sidebarTitle: "Slack"
+description: "Install the Camino Slack app to send welcome messages, manager alerts, and task reminders automatically inside your team's Slack workspace."
+---
+
+The Camino Slack integration brings onboarding communication directly into the tool your team is already using all day. Instead of relying on new hires to log into the portal to check what's next, Camino sends them a friendly nudge right in Slack — and keeps managers in the loop without any extra effort on their part.
+
+## What the Slack integration does
+
+Once connected, Camino can send the following automated messages in Slack:
+
+- **New hire welcome DM** — A direct message sent to the new hire on their start date, introducing them to Camino and linking to their onboarding portal.
+- **Manager notification** — A direct message sent to the new hire's manager as soon as a Camino record is created, letting them know onboarding has started.
+- **Task reminder DMs** — Automatic reminders sent to employees and managers when tasks are due or overdue.
+- **Team channel welcome announcement** — A message posted to a channel of your choice (for example, `#general` or `#team-engineering`) announcing the new hire to the team.
+
+You choose which of these message types to enable and configure the content of each one from the integration settings.
+
+<Tip>
+  Make the welcome DM feel personal by customizing the template. Go to **Settings → Integrations → Slack → Message Templates** to add the new hire's name, their manager's name, a link to a first-day agenda, or any other details that reflect your company's voice.
+</Tip>
+
+## How Camino matches employees to Slack users
+
+Camino automatically matches Camino employee records to Slack accounts using **email address**. If a new hire's Camino email matches a Slack account in your workspace, Camino links the two automatically — no manual mapping needed. You can review and override individual matches from the **User Mapping** tab in the integration settings.
+
+<Note>
+  Slack messages are only sent to users who have both an active Camino account and a matching Slack account in your workspace. If a new hire hasn't been added to Slack yet when their welcome DM is scheduled, Camino will retry once and then log a delivery failure you can review in **Settings → Integrations → Slack → Message Log**.
+</Note>
+
+## Installing and configuring the Slack integration
+
+<Steps>
+  <Step title="Open the Slack integration settings">
+    In Camino, go to **Settings → Integrations → Slack** and click **Connect Slack**.
+  </Step>
+  <Step title="Authorize the Camino app in Slack">
+    You'll be redirected to Slack's authorization screen. If you have Slack admin permissions or permission to install apps in your workspace, click **Allow** to install the Camino app. If your workspace requires admin approval for new apps, Camino will submit an installation request that your Slack admin can approve from Slack's App Management settings.
+  </Step>
+  <Step title="Enable message types">
+    Back in Camino, go to the **Notifications** tab. Toggle on the message types you want to enable: **New hire welcome DM**, **Manager notification**, **Task reminders**, and/or **Team channel announcement**.
+  </Step>
+  <Step title="Configure the team channel announcement">
+    If you enabled the team channel announcement, click **Choose channel** and select the Slack channel where Camino should post new hire introductions. You can pick a different channel per department using the **Per-department channels** option.
+  </Step>
+  <Step title="Customize message templates">
+    Go to the **Message Templates** tab to edit the content of each message type. Use the available merge tags (such as `{{first_name}}`, `{{start_date}}`, and `{{manager_name}}`) to personalize the messages.
+  </Step>
+  <Step title="Send a test message">
+    Click **Send test message** at the bottom of the settings page. Camino will send a sample welcome DM to your own Slack account so you can confirm formatting and delivery before it goes out to real new hires.
+  </Step>
+</Steps>
+
+## What the test message confirms
+
+The test message verifies that:
+
+- The Camino Slack app is installed and authorized correctly.
+- Camino can match your Camino account to your Slack user.
+- Your message template renders as expected, with merge tags replaced by real values.
+
+If the test message doesn't arrive, check **Settings → Integrations → Slack → Message Log** for error details, or confirm with your Slack admin that the Camino app is approved and active.

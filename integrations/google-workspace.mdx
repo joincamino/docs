@@ -1,0 +1,77 @@
+---
+title: "Connect Camino to Google Workspace"
+sidebarTitle: "Google Workspace"
+description: "Add new hires to Google Groups, share Drive files in the onboarding portal, and auto-schedule calendar invites for intro meetings — all from Camino."
+---
+
+Connecting Camino to Google Workspace lets you weave your company's existing Google infrastructure directly into the onboarding experience. New hires land in the right Google Groups on day one, find the Drive resources they need embedded right in their portal, and have intro meetings already on their calendar — without anyone on your team having to set that up manually.
+
+## What the Google Workspace integration does
+
+Once connected, the Google Workspace integration gives you three capabilities:
+
+- **Google Groups management** — Automatically add new hires to the Google Groups that match their role or department as soon as their Camino record is created.
+- **Google Drive resource sharing** — Attach Drive files and folders to your onboarding templates so they appear as embedded previews in the new hire's portal.
+- **Calendar invite creation** — Trigger calendar invites as part of onboarding workflows — for example, automatically scheduling a day-one 1:1 between the new hire and their manager.
+
+## Required permissions
+
+<Note>
+  Connecting Google Workspace requires a **Google Workspace admin account**. Camino requests permissions at the domain level, which only an admin can grant. Specifically, Camino needs:
+
+  - **Directory API** — to read your organization's Google Groups and add members.
+  - **Drive API** — to verify that shared files are accessible and to generate preview links.
+  - **Calendar API** — to create calendar events on behalf of users in your domain.
+
+  If you're not a Google Workspace admin, ask your IT or Google Workspace administrator to complete the connection step, or ask them to grant you delegated admin privileges for these APIs.
+</Note>
+
+## Connecting Google Workspace
+
+<Steps>
+  <Step title="Open the Google Workspace integration settings">
+    In Camino, go to **Settings → Integrations → Google Workspace** and click **Connect Google Workspace**.
+  </Step>
+  <Step title="Sign in with a Google Workspace admin account">
+    You'll be redirected to Google's sign-in screen. Sign in with the Google account that has admin access to your Google Workspace domain. Make sure you're signing in with your **work domain account**, not a personal Gmail account.
+  </Step>
+  <Step title="Review and grant permissions">
+    Google will display the list of permissions Camino is requesting — Directory, Drive, and Calendar access. Review the scopes, then click **Allow** to grant access. You can choose to grant all three at once or return later to enable individual features separately.
+  </Step>
+  <Step title="Configure Google Groups auto-add rules">
+    Go to the **Google Groups** tab in the integration settings. Click **Add rule** and choose the condition (for example, **Department = Marketing**) and the Google Group to add matching employees to. Add as many rules as your organization needs.
+  </Step>
+  <Step title="Test the connection">
+    Click **Verify connection** to confirm that Camino can reach the Directory, Drive, and Calendar APIs with the permissions you've granted. A green check next to each API confirms everything is working.
+  </Step>
+</Steps>
+
+## Adding Google Drive resources to onboarding templates
+
+You can attach any Google Drive file or folder to an onboarding template so it appears as an embedded preview in the new hire's portal. To add a Drive resource:
+
+1. Open the onboarding template you want to edit in **Templates**.
+2. Click **Add resource → Google Drive link**.
+3. Paste the Drive file or folder URL and click **Embed**.
+
+Camino fetches a preview and embeds it inline. New hires can view the content without leaving the portal, and clicking through opens the file in Drive directly. Make sure the file's sharing settings in Drive allow your new hires to view it — Camino does not change Drive permissions on your behalf.
+
+## Auto-adding new hires to Google Groups
+
+When auto-group-add rules are configured, Camino adds an employee to the matching Google Groups the moment their Camino record is created — whether that's manually or through an HRIS sync.
+
+<Warning>
+  Enabling auto-group-add will add employees to Google Groups **immediately** when their Camino record is created, before their start date. Review your Google Groups carefully before turning this on to make sure new hires should have access to those groups right away. If a group has access to sensitive resources, consider using a workflow step to add the employee on or after their start date instead.
+</Warning>
+
+## Creating calendar invites through workflows
+
+You can add a **Create calendar invite** step to any onboarding workflow to automatically schedule a meeting between the new hire and another person — such as a day-one 1:1 with their manager or an IT setup session.
+
+To add a calendar invite step:
+
+1. Open a workflow in **Templates → Workflows**.
+2. Click **Add step → Calendar invite**.
+3. Set the event title, duration, when to schedule it relative to the start date, and which Camino roles to invite (for example, **New hire** and **Manager**).
+
+Camino uses the Calendar API to create the event on all invitees' Google Calendars. Invitees receive a standard Google Calendar invitation email and can accept, decline, or propose a new time.

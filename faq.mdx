@@ -1,0 +1,100 @@
+---
+title: "Camino FAQ: Common Questions Answered"
+sidebarTitle: "FAQ"
+description: "Find answers to the most common questions about setting up Camino, managing templates, the new hire portal, and integrations."
+---
+
+Whether you're just getting started or fine-tuning your onboarding process, this page covers the questions our customers ask most often. Browse by topic or use your browser's search to find exactly what you need.
+
+## Getting Started
+
+<Accordion title="How do I invite a new admin to my Camino workspace?">
+  Navigate to **Settings → Team Members** and click **Invite Admin**. Enter the person's work email address and select their permission level, then click **Send Invite**. They'll receive an email with a link to set up their account and join your workspace. Invitations expire after 72 hours — if they miss it, you can resend it from the same page.
+</Accordion>
+
+<Accordion title="Can I try Camino before committing to a plan?">
+  Yes. Camino offers a free trial so you can explore the platform before choosing a plan. During your trial you have access to all core features, including templates, the new hire portal, and integrations. No credit card is required to start. When your trial period ends, you'll be prompted to select a plan to keep your workspace and data.
+</Accordion>
+
+<Accordion title="Does Camino support multiple companies or subsidiaries?">
+  Each Camino workspace is tied to one company entity. If you manage multiple subsidiaries or brands, you can create a separate workspace for each one. Company branding — including logos, colors, and welcome messages — is configured per workspace, so each entity can maintain its own distinct onboarding experience. Reach out to support@joincamino.com if you need help structuring a multi-entity setup.
+</Accordion>
+
+## Templates & Tasks
+
+<Accordion title="How many onboarding templates can I create?">
+  There is no hard limit on the number of templates you can create. You can build as many as your onboarding process requires — for example, separate templates for different roles, departments, locations, or employment types. Keeping templates organized by role (such as "Sales AE," "Engineering Intern," or "People Ops Manager") makes it easy to assign the right one when a new hire is added.
+</Accordion>
+
+<Accordion title="Can I use the same template for multiple new hires at the same time?">
+  Absolutely. When you assign a template to a new hire, Camino creates an independent copy of that template's tasks for that person. Changes to the original template after assignment won't affect anyone already onboarding. This means you can safely run the same template for ten simultaneous new hires without any cross-contamination of tasks or progress.
+</Accordion>
+
+<Accordion title="What's the difference between a new hire task and a manager task?">
+  Camino supports three task types, each assigned to a different audience:
+
+  - **New hire tasks** appear directly in the new hire's portal. These are actions the employee completes themselves, such as watching a welcome video, signing a policy document, or setting up their laptop.
+  - **Manager tasks** are assigned to the new hire's manager and appear in the manager's Camino dashboard. Examples include scheduling a first-week check-in or introducing the new hire to the team.
+  - **Admin / IT tasks** are assigned to internal staff and are tracked in the admin dashboard. These typically cover access provisioning, equipment ordering, or system setup steps.
+
+  All three task types roll up into the **Progress Tracking Dashboard** so you always have a complete picture of where every onboarding stands.
+</Accordion>
+
+<Accordion title="Can I change a template after onboarding has already started for a new hire?">
+  Edits you make to a template only apply to new assignments going forward — they don't automatically update onboardings that are already in progress. If you need to change tasks for a current new hire, open their employee profile, navigate to their assigned tasks, and edit, add, or remove tasks directly from there. This lets you make targeted adjustments without affecting other employees on the same template.
+</Accordion>
+
+<Accordion title="What are dynamic fields and how do I use them?">
+  Dynamic fields are placeholders you insert into task descriptions, welcome messages, and template content that Camino automatically replaces with real employee data when onboarding begins. Available dynamic fields include:
+
+  | Field | Resolves to |
+  |---|---|
+  | `{{first_name}}` | The employee's first name |
+  | `{{start_date}}` | Their formatted start date |
+  | `{{manager_name}}` | Their assigned manager's full name |
+  | `{{role}}` | Their job title or role |
+
+  To use a dynamic field, type it exactly as shown (including the double curly braces) anywhere in your template content. For example: *"Welcome to the team, {{first_name}}! Your first day is {{start_date}}."* If a field appears unresolved in the portal, check that the employee record has all required fields filled in — see [Troubleshooting](/troubleshooting) for more detail.
+</Accordion>
+
+## New Hire Experience
+
+<Accordion title="How does the new hire access their portal?">
+  When you add a new hire and assign them a template, Camino automatically sends them a personalized portal invitation to their email address. The email includes a unique link that takes them directly into their onboarding portal — no account creation or password required. The portal is web-based and works on any modern browser, including on mobile devices.
+</Accordion>
+
+<Accordion title="Can new hires access their portal before their start date?">
+  Yes. Camino supports **preboarding**, which means you can send portal invitations and surface preboarding content to new hires before their official start date. This is a great way to share welcome messages, company culture content, paperwork, and first-day logistics so employees arrive informed and excited. You control which tasks and content are visible during the preboarding window versus after day one.
+</Accordion>
+
+<Accordion title="What happens if a new hire loses their portal link?">
+  You can resend the portal invitation at any time from the employee's profile in your Camino admin dashboard. Open the employee record, click the **⋯** menu, and select **Resend Portal Invite**. The new hire will receive a fresh email with an updated access link. Previous links are invalidated when a new one is issued, so only the most recent link will work.
+</Accordion>
+
+<Accordion title="Is the portal mobile-friendly?">
+  Yes. The new hire portal is fully responsive and designed to work seamlessly on smartphones and tablets as well as desktop browsers. New hires can complete tasks, watch videos, review documents, and track their progress from any device without needing to download a separate app. For the best experience on mobile, we recommend using a current version of Safari or Chrome.
+</Accordion>
+
+## Integrations
+
+<Accordion title="Which HRIS systems does Camino connect to?">
+  Camino currently integrates with the following HRIS platforms:
+
+  <CardGroup cols={3}>
+    <Card title="BambooHR" icon="leaf" />
+    <Card title="Workday" icon="building" />
+    <Card title="ADP" icon="briefcase" />
+    <Card title="Rippling" icon="bolt" />
+    <Card title="Gusto" icon="umbrella" />
+  </CardGroup>
+
+  HRIS integrations let you automatically import new employees into Camino when they're added to your HR system, keeping both platforms in sync. You can set up or manage your HRIS connection under **Settings → Integrations**. If your HRIS isn't on this list, contact support@joincamino.com — we're actively expanding our integration library.
+</Accordion>
+
+<Accordion title="Do I need a Slack admin account to set up the Slack integration?">
+  You need to be a **Slack Workspace Admin** (or have an admin authorize the connection on your behalf) to install the Camino app in your Slack workspace for the first time. This is a one-time step required by Slack's permission model. Once the app is installed, any Camino admin can configure which automated messages are sent, to whom, and when — no ongoing Slack admin access is needed for day-to-day use.
+
+  <Tip>
+    If you're not a Slack admin, share the **Settings → Integrations → Slack** page with your IT team. They can complete the authorization in a few clicks and hand control back to you immediately.
+  </Tip>
+</Accordion>

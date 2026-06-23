@@ -1,0 +1,177 @@
+---
+title: "Tasks and Checklists: Keeping Onboarding on Track"
+sidebarTitle: "Tasks"
+description: "Create and manage new hire, manager, and admin tasks with relative due dates, dependencies, and completion tracking to keep onboarding moving forward."
+---
+
+Tasks are the atomic unit of onboarding in Camino. Every action a new hire needs to take, every item their manager needs to prepare, and every internal IT step your team needs to complete lives as a task inside a template section. Organizing tasks well — with clear due dates, the right assignee, and sensible dependencies — means onboarding moves forward reliably without anyone having to chase people down. You create and manage tasks from within the template editor or directly on an employee's profile.
+
+---
+
+## Task Types
+
+Camino has three distinct task types, each designed for a different actor in the onboarding process.
+
+<Note>
+  **New Hire Tasks** and **Manager Tasks** are visible in their respective portals. **Admin/IT Tasks** are internal only — new hires never see them, and they do not appear in the new hire's task checklist. Use Admin/IT Tasks freely for backend operations without worrying about cluttering the new hire experience.
+</Note>
+
+<Tabs>
+  <Tab title="New Hire Tasks">
+    New Hire Tasks are actions the new hire completes themselves. They appear in the new hire's portal as a checklist, organized by template section. These are the tasks that drive the day-to-day onboarding experience from the new hire's perspective.
+
+    **Examples:**
+    - Complete payroll direct deposit setup
+    - Watch the company culture video
+    - Schedule a 1:1 with your manager in the first week
+    - Read and sign the employee handbook
+    - Set up your development environment (for engineers)
+    - Complete the benefits enrollment form by Day 3
+    - Introduce yourself in the #general Slack channel
+
+    New hire tasks can be marked **required** or **optional**. Camino's completion percentage in the admin dashboard is calculated based on required tasks only.
+  </Tab>
+  <Tab title="Manager Tasks">
+    Manager Tasks are actions the assigned manager completes before or after the new hire's start date. They appear in the manager's dedicated task view and trigger email notifications to the manager when they become due. New hires cannot see these tasks.
+
+    **Examples:**
+    - Send a personal welcome email before day one
+    - Prepare the new hire's workstation and equipment
+    - Schedule the week-one team introduction meeting
+    - Complete the 30-day performance check-in form
+    - Review and confirm the new hire's 90-day goals
+    - Introduce the new hire to key stakeholders in the first week
+
+    Managers access their tasks through their Camino account under **My Tasks**. You can also send manual reminders for overdue manager tasks from the admin dashboard.
+  </Tab>
+  <Tab title="Admin / IT Tasks">
+    Admin/IT Tasks are internal operations items that your HR, IT, or admin team tracks in Camino. They are never visible to the new hire or their manager. Use them to keep all onboarding logistics — including backend IT provisioning — in one place.
+
+    **Examples:**
+    - Provision laptop and ship to employee's address
+    - Create accounts in Google Workspace, Slack, and Jira
+    - Add employee to payroll system
+    - Order business cards
+    - Set up building access / badge
+    - Add to relevant mailing lists and distribution groups
+    - Confirm equipment delivery before start date
+
+    Admin/IT Tasks are assigned to specific Camino admin or team-member accounts and appear in their **My Tasks** view. They follow the same relative due date system as other task types.
+  </Tab>
+</Tabs>
+
+---
+
+## Creating a Task
+
+You add tasks from two places: inside the template editor (for reusable tasks that apply to all employees on that template) or directly on an employee's profile (for one-off tasks specific to that person).
+
+### Task Fields
+
+<ParamField path="title" type="string" required>
+  A short, action-oriented label for the task. Write it as an instruction: "Complete direct deposit setup" rather than "Direct deposit." Keep it under 80 characters so it displays cleanly in the checklist view.
+</ParamField>
+
+<ParamField path="description" type="string">
+  Additional context, step-by-step instructions, or links the assignee needs to complete the task. Supports rich text formatting. Use this field to include the URL, login instructions, or a brief explanation of why this task matters.
+</ParamField>
+
+<ParamField path="task_type" type="enum" required>
+  One of: `new_hire`, `manager`, or `admin`. Controls who sees the task and where it appears. Cannot be changed after the task is saved.
+</ParamField>
+
+<ParamField path="due_date" type="relative" required>
+  Relative to the employee's start date. Enter a value like `Day 1`, `Day 7`, `Day 30`, or `-3` (3 days before start date). See [Due Dates](#task-due-dates) for the full format reference.
+</ParamField>
+
+<ParamField path="required" type="boolean">
+  If `true`, this task is counted toward the onboarding completion percentage. If `false`, the task appears as optional in the checklist and is excluded from completion calculations. Defaults to `true`.
+</ParamField>
+
+<ParamField path="attachments" type="file[]">
+  Upload one or more files (PDF, DOCX, XLSX, PNG, JPG — max 25 MB each) that the assignee can download when completing the task. Useful for forms, policy documents, or reference materials.
+</ParamField>
+
+---
+
+## Task Due Dates
+
+All task due dates in Camino are **relative to the new hire's start date**, not fixed calendar dates. This makes templates reusable regardless of when a specific employee starts.
+
+| Format | Meaning | Example |
+|---|---|---|
+| `Day 1` | The new hire's first day | Start by end of business on start date |
+| `Day 7` | 7 days after start date | End of first full week |
+| `Day 30` | 30 calendar days after start date | First month milestone |
+| `Day 60` | 60 calendar days after start date | Two-month milestone |
+| `Day 90` | 90 calendar days after start date | Quarter milestone |
+| `-3` | 3 days **before** start date | Preboarding task |
+| `-7` | 7 days **before** start date | Earlier preboarding task |
+
+When Camino calculates actual due dates for a specific employee, it takes their start date, applies the relative offset, and skips weekends if **Exclude Weekends** is enabled in Workspace Settings.
+
+---
+
+## Task Dependencies
+
+Sometimes a task only makes sense after another task is completed. For example, "Schedule tool walkthrough with IT" shouldn't appear until "Confirm laptop received" is done. Task dependencies let you enforce this sequence.
+
+To add a dependency:
+1. Open the task you want to unlock conditionally (the **dependent** task).
+2. Click **Add Dependency** under the **Advanced** section.
+3. Select the task that must be completed first (the **prerequisite** task).
+4. Save.
+
+The dependent task will appear greyed out in the new hire's checklist with a note explaining which task needs to be completed first. Once the prerequisite is marked done, the dependent task unlocks automatically.
+
+<Note>
+  Task dependencies work across task types — a New Hire Task can depend on a Manager Task, and vice versa. For example, an IT provisioning task (Admin/IT) can depend on a manager completing the equipment request form (Manager Task). Be thoughtful about cross-type dependencies to avoid blocking new hires on actions outside their control.
+</Note>
+
+---
+
+## Adding Instructions and File Attachments
+
+The **Description** field supports full rich text: bold, italic, bullet lists, numbered lists, inline links, and code blocks. Use it to give the assignee everything they need without requiring them to look anything up.
+
+For tasks that require a form or document, click **Attach File** and upload up to five files per task. Files are stored securely in Camino and available for download from the task detail view. Attachments added in the template editor are included every time that template is assigned.
+
+---
+
+## How Tasks Are Completed
+
+**New Hire Tasks:** The new hire logs into their Camino portal, navigates to the relevant section, and clicks the checkbox next to each task. They can also expand a task to read the full description and download any attachments before marking it done.
+
+**Manager Tasks:** The manager logs into Camino and goes to **My Tasks**. They see all pending tasks for their direct reports, sorted by due date. Clicking a task shows the description, any attached files, and a **Mark Complete** button.
+
+**Admin/IT Tasks:** Admin team members find their tasks under **My Tasks** in their Camino admin account. IT tasks can also be viewed in bulk from the employee's profile under the **Internal Tasks** tab.
+
+---
+
+## Viewing Task Completion in the Dashboard
+
+The **Progress** dashboard (**Dashboard** in the left nav) gives you a real-time overview of task completion across all active employees.
+
+- **By Employee** — see each employee's overall completion percentage and a list of upcoming and overdue tasks.
+- **By Task** — see how many employees have completed a specific task and identify tasks that are consistently skipped or overdue.
+- **Overdue Tasks** — a filtered view showing every task past its due date, the assignee, and how many days overdue it is.
+
+Click any employee's name to open their detailed task timeline, where you can see every task, its status (not started, in progress, complete, overdue), and the exact completion timestamp.
+
+---
+
+## Sending Reminders for Overdue Tasks
+
+When a task passes its due date without being marked complete, Camino flags it as overdue in the dashboard and in the assignee's task view.
+
+To send a manual reminder:
+
+1. Open the employee's progress view or go to **Dashboard → Overdue Tasks**.
+2. Click the **⋯** menu next to the overdue task.
+3. Select **Send Reminder**. Camino sends a one-click reminder email to the task assignee with a direct link to the task.
+
+You can also set up automated reminders in **Settings → Notifications** to have Camino send reminders automatically after a task is overdue by 1 day, 3 days, or a custom interval.
+
+<Tip>
+  For critical tasks like payroll enrollment or compliance acknowledgments, use automated workflows to send a reminder email the day before the task is due — not just after it's already overdue. See [Automated Workflows](/admin/automated-workflows) to set this up.
+</Tip>

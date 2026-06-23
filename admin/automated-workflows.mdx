@@ -1,0 +1,204 @@
+---
+title: "Automate Onboarding with Workflows"
+sidebarTitle: "Workflows"
+description: "Build trigger-based workflows to send emails, assign tasks, and post Slack messages automatically — so every new hire gets a consistent, timely experience."
+---
+
+Workflows let you automate the repetitive, time-sensitive communication that makes onboarding feel consistent and cared-for. Instead of remembering to send a day-one welcome email or a 30-day check-in every time a new hire reaches a milestone, you configure it once and Camino handles it automatically — for every employee, every time. Navigate to **Workflows** in the left-hand menu to build and manage your automations.
+
+---
+
+## Why Workflows Matter
+
+Manual onboarding coordination doesn't scale. When you're hiring one person a month, it's manageable to remember every touchpoint. When you're hiring ten, or twenty, crucial emails get missed, check-ins slip through the cracks, and the experience becomes inconsistent. Workflows solve this by turning your onboarding playbook into a reliable, automated system — freeing your People team to focus on the human moments that automation can't replace.
+
+---
+
+## Trigger Types
+
+Every workflow starts with a trigger — the event or moment that kicks the workflow into motion.
+
+<CardGroup cols={2}>
+  <Card title="Time-Based Triggers" icon="clock">
+    Fire at a specific point relative to the new hire's start date. Use these for milestone check-ins, scheduled emails, and time-sensitive task assignments.
+
+    - **Before start date** (preboarding): e.g., 7 days before, 3 days before, 1 day before
+    - **On start date** (Day 1)
+    - **Day 7** — end of first week
+    - **Day 30** — one month in
+    - **Day 60** — two months in
+    - **Day 90** — first quarter complete
+  </Card>
+  <Card title="Event-Based Triggers" icon="bolt">
+    Fire when a specific action occurs in Camino. Use these for reactive, just-in-time communication.
+
+    - **Employee added** — fires as soon as a new employee record is created
+    - **Task completed** — fires when a specific task is marked done by the new hire, manager, or admin
+    - **Onboarding completed** — fires when all required tasks are marked done
+    - **Template assigned** — fires when an onboarding template is applied to an employee
+  </Card>
+</CardGroup>
+
+---
+
+## Action Types
+
+After a trigger fires, the workflow executes one or more actions. You can chain multiple actions in a single workflow — for example, send a Slack message to the manager **and** assign a follow-up task in the same workflow.
+
+| Action | Description |
+|---|---|
+| **Send email to new hire** | Sends a custom email to the new hire's work email. Supports dynamic fields, rich text, and a CTA button. |
+| **Send email to manager** | Sends a custom email to the new hire's assigned manager. Useful for prep reminders and milestone notifications. |
+| **Send Slack message** | Posts a message to a Slack channel or sends a DM to a specific user. Requires the [Slack integration](/integrations/slack) to be configured. |
+| **Assign task** | Creates a new task on the employee's profile with a specified title, description, due date, and assignee. |
+| **Update employee status** | Changes the employee's onboarding status (e.g., mark as "In Progress" or "Completed"). |
+
+---
+
+## Building a Workflow
+
+The workflow builder walks you through three steps: choose a trigger, add conditions (optional), and add actions.
+
+<Steps>
+  <Step title="Click 'New Workflow'">
+    From the **Workflows** page, click **+ New Workflow**. Give it a descriptive name — something like "Day 30 Check-In Email" or "Manager Prep — 3 Days Before Start." This name is internal only.
+  </Step>
+  <Step title="Choose a Trigger">
+    Select whether your trigger is **Time-Based** or **Event-Based**, then configure the specifics. For a time-based trigger, choose the milestone (e.g., Day 30). For an event-based trigger, choose the event (e.g., Task Completed) and, if applicable, specify which task.
+  </Step>
+  <Step title="Add Conditions (Optional)">
+    Conditions let you filter which employees this workflow applies to. Without conditions, the workflow runs for every employee. Add conditions to target a specific group:
+
+    - **Department** is / is not [value]
+    - **Role** contains [value]
+    - **Location** is [office / remote / hybrid]
+    - **Template** is [template name]
+
+    Combine multiple conditions with **AND** (all must be true) or **OR** (any must be true) logic.
+  </Step>
+  <Step title="Add Actions">
+    Click **+ Add Action** and choose from the available action types. Configure each action — write your email copy, compose your Slack message, or specify the task details. You can add multiple actions; they execute in the order you arrange them.
+  </Step>
+  <Step title="Activate the Workflow">
+    Toggle the workflow to **Active** and click **Save**. From this point forward, the workflow will run for any employee who meets the trigger and condition criteria.
+  </Step>
+</Steps>
+
+---
+
+## Creating a 30-Day Check-In Workflow: Example
+
+Here's a step-by-step example of building one of the most useful onboarding workflows — a 30-day check-in that emails the new hire and simultaneously notifies their manager.
+
+<Steps>
+  <Step title="Name the Workflow">
+    Name it "30-Day Check-In — New Hire + Manager."
+  </Step>
+  <Step title="Set the Trigger">
+    Choose **Time-Based → Day 30** (30 calendar days after start date).
+  </Step>
+  <Step title="Add a Condition (Optional)">
+    Leave conditions empty to run for all employees, or add `Department is Engineering` if you want this version to apply only to your engineering team.
+  </Step>
+  <Step title="Add Action 1: Email to New Hire">
+    Choose **Send Email to New Hire**. Write a subject like "How's your first month going, {{first_name}}?" and a warm body that asks how they're settling in, links to any 30-day reflection resources, and encourages them to share feedback with their manager.
+  </Step>
+  <Step title="Add Action 2: Email to Manager">
+    Click **+ Add Action** and choose **Send Email to Manager**. Write a prompt reminding the manager to schedule the 30-day 1:1, review the new hire's progress, and complete any pending manager tasks.
+  </Step>
+  <Step title="Activate">
+    Toggle the workflow to **Active** and save. Camino will now send both emails automatically on day 30 for every new employee who meets the conditions.
+  </Step>
+</Steps>
+
+---
+
+## Workflow Conditions
+
+Conditions allow you to build one workflow that behaves differently for different employee groups, or to create targeted workflows for specific roles and locations.
+
+**Available condition fields:**
+
+| Field | Operators | Example |
+|---|---|---|
+| Department | is, is not | Department is Sales |
+| Job Title | contains, does not contain | Job Title contains "Manager" |
+| Location | is, is not | Location is Remote |
+| Onboarding Template | is, is not | Template is "Engineering — IC" |
+| Start Date | before, after, on | Start Date is after Jan 1, 2025 |
+
+---
+
+## Activating and Deactivating Workflows
+
+Workflows can be toggled **Active** or **Inactive** at any time from the Workflows list page. An inactive workflow never fires, even if its trigger conditions are met.
+
+Use this to:
+- Pause seasonal workflows when not needed
+- Test a draft workflow before going live
+- Retire old workflows without deleting the configuration
+
+<Warning>
+  Workflows only trigger for employees **added after the workflow is activated**. If you activate a workflow today, it will not retroactively run for employees who were already added or who already passed the trigger milestone. To send a communication to existing employees, use the **Send Reminder** or bulk email features from the employee list.
+</Warning>
+
+---
+
+## Viewing Workflow Run History and Logs
+
+Every time a workflow fires, Camino logs the run. To review logs:
+
+1. Open the workflow from the **Workflows** page.
+2. Click the **Run History** tab.
+3. You'll see a list of every execution: the employee name, trigger date, actions taken, and whether each action succeeded or failed.
+
+If an email failed to deliver or a Slack message wasn't sent, the log shows the error and a **Retry** button. Common causes of failures include an invalid email address, a disconnected Slack integration, or a task that couldn't be assigned due to a missing field.
+
+---
+
+## Example Workflow Ideas
+
+<Accordion title="Day 1 Welcome Email">
+  **Trigger:** On Start Date (Day 1)
+
+  **Actions:**
+  1. Send email to new hire — warm welcome from the CEO or People team, link to the portal, and a summary of what to expect in week one.
+  2. Send Slack message to `#general` — "Please welcome {{full_name}} who is joining us today as {{role}} on the {{department}} team! 👋"
+
+  This is the single highest-impact workflow you can create. A warm, on-time welcome email sets the tone for the entire onboarding experience.
+</Accordion>
+
+<Accordion title="Manager Prep Checklist — 3 Days Before Start">
+  **Trigger:** 3 days before start date
+
+  **Actions:**
+  1. Send email to manager — a checklist of everything to complete before the new hire's first day: workstation ready, accounts provisioned, calendar invites sent, team intro meeting scheduled.
+  2. Assign task to manager — "Confirm day-one logistics are complete" with a due date of 1 day before start date.
+
+  Managers are busy, and day-one prep slips. This workflow surfaces the checklist at exactly the right time.
+</Accordion>
+
+<Accordion title="30-Day Check-In">
+  **Trigger:** Day 30
+
+  **Actions:**
+  1. Send email to new hire — ask how the first month has gone, share any month-one resources (e.g., a reflection template or survey link), and remind them of upcoming milestones.
+  2. Send email to manager — prompt the manager to schedule the 30-day 1:1, review progress on required tasks, and complete any open manager tasks before the meeting.
+
+  The 30-day mark is when new hires start forming lasting opinions about their employer. A proactive check-in shows you care.
+</Accordion>
+
+<Accordion title="90-Day Review Reminder">
+  **Trigger:** Day 80 (10 days before the 90-day mark)
+
+  **Actions:**
+  1. Send email to manager — remind them that the 90-day performance conversation is coming up in 10 days, link to the review template, and prompt them to schedule time.
+  2. Send email to new hire — give the new hire a heads-up that their 90-day conversation is approaching, explain what to expect, and encourage them to reflect on their goals.
+  3. Assign task to new hire — "Complete 90-day self-reflection" with a due date of Day 88, so it's done before the manager conversation.
+
+  Triggering this at Day 80 gives both sides enough runway to prepare, making the 90-day conversation more substantive.
+</Accordion>
+
+<Tip>
+  Day-30 and Day-90 workflows are ideal moments to distribute pulse surveys. Drop a link to your survey tool (Typeform, Culture Amp, Lattice, etc.) in the check-in email body. You'll gather structured feedback at consistent milestones without any manual coordination.
+</Tip>

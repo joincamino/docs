@@ -1,0 +1,94 @@
+---
+title: "Sync Employees from Your HRIS to Camino"
+sidebarTitle: "HRIS"
+description: "Connect BambooHR, Workday, ADP, Rippling, or Gusto to automatically create Camino records and assign onboarding templates when someone is hired."
+---
+
+Connecting your HRIS to Camino means you never have to create a new hire record by hand. When you add an employee in your HR system, Camino picks them up automatically, fills in their profile with the data you already have, and can even assign the right onboarding template for their role — all before you've had a chance to close the tab.
+
+## Supported platforms
+
+Camino currently integrates with the following HRIS systems:
+
+- **BambooHR**
+- **Workday**
+- **ADP**
+- **Rippling**
+- **Gusto**
+
+If your HRIS isn't listed, contact [support@camino.com](mailto:support@camino.com) to discuss adding it.
+
+## What syncs
+
+When Camino detects a new hire in your HRIS, it creates a Camino employee record using the following fields:
+
+| HRIS field | Camino field |
+|---|---|
+| First & last name | Employee name |
+| Work email | Email address |
+| Job title | Role |
+| Department | Department |
+| Manager | Assigned manager |
+| Employment start date | Start date |
+
+You can customize how these fields map to Camino in the **Field Mappings** section of the integration settings. If your HRIS uses custom fields, you can map those to Camino's custom profile fields as well.
+
+## How the sync works
+
+Camino polls your HRIS **once every hour** to check for new or updated employee records. When a new hire is detected, Camino:
+
+1. Creates a new employee record in Camino using the mapped fields.
+2. Optionally **auto-assigns an onboarding template** based on the employee's role or department (configured in your auto-assignment rules).
+3. Triggers any connected integrations — for example, sending a Slack notification to the manager.
+
+If an existing employee's data changes in your HRIS (for example, a department transfer or manager change), Camino updates the corresponding fields on the next sync.
+
+You can also trigger a **manual sync** at any time from **Settings → Integrations → HRIS → Sync Now**.
+
+<Tip>
+  Set up auto-assignment rules to eliminate manual template assignment entirely. Map each role or department to an onboarding template, and Camino will assign the correct template the moment a new hire is detected — no action required from your team.
+</Tip>
+
+## Handling duplicate employees
+
+If a sync creates a record for someone who already exists in Camino (matched by email address), Camino will flag the duplicate rather than creating a second record. You'll see a **Duplicate detected** notice in **Settings → Integrations → HRIS → Sync Log**, where you can choose to merge the records or dismiss the alert.
+
+## Connecting your HRIS
+
+<Warning>
+  Setting up the HRIS integration requires admin-level credentials for your HRIS system. If you don't have admin access, ask your HR administrator to complete this step or grant you the necessary permissions before you begin.
+</Warning>
+
+The general setup flow is the same for all supported providers:
+
+1. Go to **Settings → Integrations → HRIS**.
+2. Select your HRIS provider from the list.
+3. Authenticate using OAuth (BambooHR, Rippling, Gusto) or enter your API key (Workday, ADP).
+4. Configure your field mappings.
+5. Set auto-assignment rules.
+6. Save and run your first manual sync to confirm everything is working.
+
+For a detailed walkthrough, follow the BambooHR example below — the steps are nearly identical for other providers.
+
+### Example: Connecting BambooHR
+
+<Steps>
+  <Step title="Open the HRIS integration settings">
+    In Camino, navigate to **Settings → Integrations → HRIS** and click the **BambooHR** card.
+  </Step>
+  <Step title="Enter your BambooHR subdomain">
+    Type your company's BambooHR subdomain (for example, `acme` if your BambooHR URL is `acme.bamboohr.com`) into the **Subdomain** field.
+  </Step>
+  <Step title="Authenticate via OAuth">
+    Click **Connect BambooHR**. You'll be redirected to BambooHR's login page. Sign in with your BambooHR admin account and click **Allow** to grant Camino read access to your employee directory.
+  </Step>
+  <Step title="Configure field mappings">
+    Review the default field mappings on the **Field Mappings** tab. Adjust any mappings where your BambooHR field names differ from the defaults, and add mappings for any custom fields you want to bring into Camino.
+  </Step>
+  <Step title="Set auto-assignment rules">
+    Go to the **Auto-Assignment** tab. Click **Add rule**, then choose a condition (such as **Department = Engineering**) and the Camino template to assign when that condition is met. Add as many rules as you need.
+  </Step>
+  <Step title="Run a manual sync">
+    Click **Sync Now** to pull in your existing employees and confirm that records are created correctly. Check the **Sync Log** for any errors or duplicate alerts.
+  </Step>
+</Steps>

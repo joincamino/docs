@@ -1,0 +1,111 @@
+---
+title: "Core Concepts: How Camino Onboarding Works"
+sidebarTitle: "Core Concepts"
+description: "Understand the key building blocks of Camino — workspaces, templates, tasks, workflows, and the new hire portal — and how they work together."
+---
+
+Camino is built around a handful of interconnected concepts that, once understood, make the entire platform click into place. Whether you're configuring your first onboarding program or troubleshooting an existing one, knowing what each piece does — and how the pieces relate to one another — will help you get the most out of Camino. This page explains each core concept in plain language, with enough detail to inform both day-to-day use and longer-term program design.
+
+<Note>
+  Here's how the pieces fit together: your **Workspace** is the container for everything. Inside it, you build **Onboarding Templates** made up of **Tasks**. When you assign a template to a new hire, Camino generates a personalized **New Hire Portal** and kicks off any **Workflows** you've configured. **Stakeholders** beyond the new hire — managers, IT, buddies — receive their own task assignments throughout the journey. **Preboarding** content reaches new hires before their start date, giving them a head start before day one.
+</Note>
+
+## Key Concepts
+
+<Accordion title="Workspaces">
+  Your Camino **workspace** is your company's dedicated account on the platform. Think of it as the container that holds everything: your new hires, your onboarding templates, your team members, your integrations, and your settings.
+
+  When you first sign up for Camino, you create a workspace and give it your company name. Every person on your People team who helps manage onboarding is invited to the workspace as an **admin** or **member**, with permissions you control. New hires, on the other hand, don't have full workspace access — they only see their personalized portal.
+
+  Your workspace also stores your **branding** (logo, colors, custom domain), your **integration connections** (HRIS, Slack, Google Workspace), and your **account settings**. If your company operates multiple distinct business units or regions, you can reach out to Camino support to discuss multi-workspace options.
+</Accordion>
+
+<Accordion title="Onboarding Templates">
+  An **onboarding template** is a reusable blueprint for an onboarding experience. Instead of building a custom plan from scratch for every new hire, you create a template once — for a specific role, team, or location — and then assign it to any hire who fits that profile.
+
+  Templates contain:
+  - A curated list of **tasks** (see below) with relative due dates
+  - **Resources** like documents, links, and videos that new hires can reference
+  - **Workflow triggers** that fire automated actions at key milestones
+  - Optional **preboarding content** that goes out before the hire's start date
+
+  You can have as many templates as you need. Common examples include "Engineering Onboarding," "Sales New Hire - Remote," or "Manager Onboarding Track." Templates can also be **duplicated and customized**, so you're never starting from a blank slate.
+
+  When you assign a template to a new hire, Camino uses their start date to calculate every task's due date automatically — no manual date-setting required.
+</Accordion>
+
+<Accordion title="Tasks">
+  A **task** is the fundamental unit of action in Camino. It represents a single, concrete thing that someone needs to do during the onboarding process — whether that's the new hire reading the employee handbook, IT provisioning a laptop, or a manager scheduling a 30-day check-in.
+
+  Every task has:
+  - A **title** and optional **description** or instructions
+  - An **assignee** — the new hire, their manager, an IT admin, a buddy, or any other stakeholder
+  - A **due date** expressed relative to the new hire's start date (e.g., "Day -3" for three days before start, "Day 1," "Day 14," or "Day 30")
+  - An optional **resource attachment** such as a link, PDF, or video
+
+  Tasks assigned to the new hire appear in their portal. Tasks assigned to stakeholders are delivered via email or, if you've connected Slack, directly in Slack. All tasks — regardless of assignee — are visible to admins in the progress tracking dashboard, giving you a complete picture of where each onboarding stands.
+</Accordion>
+
+<Accordion title="Workflows">
+  **Workflows** are automated sequences of actions that Camino executes when a specific event occurs. They let you deliver the right message or action at exactly the right moment — without anyone on your team having to remember to do it manually.
+
+  A workflow has two parts:
+  1. A **trigger** — the event that starts the workflow, such as a new hire being added, their start date arriving, a task being marked complete, or a milestone like Day 30 or Day 90
+  2. One or more **actions** — what happens when the trigger fires, such as sending a Slack message, assigning a new task, notifying a stakeholder, or sending a customized email to the new hire
+
+  For example, you might create a workflow that automatically sends your new hire a "Welcome to the team!" Slack message the morning of their start date, and simultaneously notifies IT to confirm their equipment is ready. Workflows eliminate the manual coordination that typically falls through the cracks in busy People teams.
+</Accordion>
+
+<Accordion title="The New Hire Portal">
+  The **new hire portal** is the personalized, branded web experience that every new hire receives when they're added to Camino. It's their single destination for everything related to their onboarding — and it's designed to feel welcoming, not overwhelming.
+
+  Inside their portal, a new hire can:
+  - View and check off their **task checklist**, organized by due date
+  - Access **resources** — documents, videos, and links — attached to their tasks or shared at the template level
+  - Read a **welcome message** from your company or their manager
+  - Browse **team introductions** to learn who they'll be working with
+  - Track their own **progress** through the onboarding journey
+
+  The portal is accessible via a unique link sent to the new hire's email. It reflects your company's branding (logo and colors) and is fully responsive on mobile devices. New hires can access their portal before their first day — which is exactly the point.
+</Accordion>
+
+<Accordion title="Preboarding">
+  **Preboarding** refers to the content, tasks, and communications that a new hire receives *before* their official start date. It's one of the most impactful parts of any onboarding program, because it replaces the anxiety of "I don't know what to expect" with a sense of preparation and excitement.
+
+  In Camino, preboarding works through tasks and resources with **negative relative due dates** — for example, "Day -5" means five days before the start date. You can also schedule **automated workflow actions** to fire during the preboarding window, such as sending a welcome email when the hire is first added to Camino, or delivering a "First Day Prep" resource pack three days before they start.
+
+  Typical preboarding content includes welcome messages, required paperwork or policy acknowledgments, equipment and IT setup instructions, team introduction videos, and a day-one agenda. Delivering this through the new hire portal means it's all in one place — not buried in an email thread.
+
+  <Tip>
+    Even a lightweight preboarding program — a welcome message and a first-day agenda — meaningfully reduces new hire anxiety and improves early engagement. Start simple and expand over time.
+  </Tip>
+</Accordion>
+
+<Accordion title="Stakeholders">
+  A **stakeholder** is anyone involved in the onboarding process beyond the new hire themselves. Successful onboarding rarely falls to one person — it takes coordinated effort across HR, IT, the hiring manager, and often a designated onboarding buddy.
+
+  In Camino, you can assign tasks to any of the following stakeholder roles:
+  - **Manager** — the new hire's direct manager, who is automatically linked when you add the hire
+  - **IT Admin** — responsible for equipment provisioning and system access
+  - **Buddy** — a peer assigned to help the new hire settle in socially and culturally
+  - **Custom stakeholders** — any named team member or role you define in your workspace
+
+  Stakeholders receive task notifications by email by default. If you've connected the Slack integration, they can also receive and complete tasks directly in Slack. Admins can see all stakeholder task statuses in the progress tracking dashboard, so you always know if a critical step — like laptop delivery or system access — is falling behind.
+
+  <Warning>
+    Stakeholders must be invited to your Camino workspace before they can be assigned tasks. Make sure your team members are set up in **Settings → Team Members** before building templates that reference them.
+  </Warning>
+</Accordion>
+
+## Keep Exploring
+
+Now that you understand how Camino's building blocks fit together, you're ready to start building.
+
+<CardGroup cols={2}>
+  <Card title="Onboarding Templates" icon="copy" href="/admin/onboarding-templates">
+    Build and manage reusable onboarding blueprints for every role, team, and location at your company.
+  </Card>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Follow a hands-on walkthrough to create your first template and add your first new hire in minutes.
+  </Card>
+</CardGroup>

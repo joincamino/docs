@@ -1,0 +1,107 @@
+---
+title: "Setting Up Your Camino Workspace"
+sidebarTitle: "Workspace Setup"
+description: "Configure your Camino workspace with company branding, team members, roles, and notification preferences to launch personalized onboarding."
+---
+
+Your Camino workspace is the foundation of every onboarding experience you build. Before inviting your first new hire, take a few minutes to configure your branding, add your team, and set your notification preferences — these settings shape what new hires see from the moment they receive their welcome email. Head to **Settings → Workspace** to get started.
+
+## Initial Setup Sequence
+
+Follow these steps the first time you configure your workspace. You can revisit any setting at any time, but completing them in order ensures nothing is missed before your first new hire goes live.
+
+<Steps>
+  <Step title="Open Workspace Settings">
+    From the left-hand navigation, click **Settings**, then select **Workspace**. This is the central hub for all company-level configuration.
+  </Step>
+  <Step title="Upload Your Company Logo">
+    Under **Branding**, click **Upload Logo** and select a PNG or SVG file (recommended size: 200 × 60 px). Your logo appears in the top-left corner of every new hire portal and in system-generated emails.
+  </Step>
+  <Step title="Set Your Brand Colors">
+    Click the color swatch next to **Primary Color** and enter your hex code, or use the color picker. Camino applies this color to buttons, progress bars, and headings throughout the new hire portal, giving it an on-brand feel from day one.
+  </Step>
+  <Step title="Set Your Timezone and Default Language">
+    Under **Regional Settings**, choose your company's primary timezone. This controls when time-based workflow triggers fire (for example, a "Day 1" email sends at 8:00 AM in the timezone you select). Choose a **Default Language** for portal text and system emails.
+  </Step>
+  <Step title="Add Team Members">
+    Go to **Settings → Team Members** and click **Invite Member**. Enter the person's name and work email, then assign their role. New invitations receive an email with a link to activate their account.
+  </Step>
+  <Step title="Assign Admin Roles">
+    Choose the appropriate role for each team member (see [Roles and Permissions](#roles-and-permissions) below). Admins can manage all settings; Managers can view and act on their own direct reports; Viewers have read-only access.
+  </Step>
+  <Step title="Configure Email Notifications">
+    Under **Notifications**, toggle on the events you want admins to be alerted about — such as a new hire completing preboarding or a task going overdue. Specify which admin email address should receive each type of alert.
+  </Step>
+</Steps>
+
+<Note>
+  Changes to workspace settings — including branding, timezone, and language — apply to **all** new hire portals going forward. Employees who are already in progress will see updated branding immediately, but their workflow schedules will not be recalculated if you change the timezone after onboarding has started.
+</Note>
+
+---
+
+## Company Branding
+
+A consistent brand makes new hires feel they've joined a real company, not a generic HR portal. Camino lets you control the visual identity of every touchpoint.
+
+<CardGroup cols={2}>
+  <Card title="Logo" icon="image">
+    Appears in the portal header and all system-generated emails. Supports PNG and SVG. For best results, use a version of your logo with a transparent background.
+  </Card>
+  <Card title="Primary Color" icon="palette">
+    Used for buttons, links, and progress indicators throughout the new hire portal. Enter any valid hex code.
+  </Card>
+  <Card title="Company Name" icon="building">
+    Displayed in the browser tab title and email subject lines. Keep it short — this is what new hires see before they even open the portal.
+  </Card>
+  <Card title="Welcome Banner" icon="hand-wave">
+    An optional full-width image shown at the top of the new hire portal homepage. Use a team photo or branded illustration to set the tone.
+  </Card>
+</CardGroup>
+
+---
+
+## Roles and Permissions
+
+Camino uses three built-in roles to control what each team member can see and do.
+
+<Accordion title="Admin">
+  Full access to all workspace settings, templates, employees, workflows, and reports. Assign this role to HR managers and People Ops leads who own the onboarding program.
+</Accordion>
+
+<Accordion title="Manager">
+  Can view the onboarding progress of their direct reports, complete manager tasks, and add comments to employee profiles. Cannot edit templates or workspace settings.
+</Accordion>
+
+<Accordion title="Viewer">
+  Read-only access to the progress dashboard. Useful for executives or HR business partners who need visibility without making changes.
+</Accordion>
+
+---
+
+## Email Notification Settings
+
+Camino can alert your admin team when key events happen. Navigate to **Settings → Notifications** to configure which events send emails and to whom.
+
+| Event | Who Is Notified | Default |
+|---|---|---|
+| New employee added | All Admins | On |
+| New hire completes preboarding | Assigned Admin | On |
+| Task overdue by 1 day | Task assignee + Admin | On |
+| New hire portal first login | Assigned Admin | Off |
+| Onboarding completed | All Admins | On |
+| Workflow run failure | All Admins | On |
+
+<Tip>
+  If your team uses Slack, connect the Slack integration under **Settings → Integrations** to route these same notifications into a dedicated `#onboarding-alerts` channel instead of (or in addition to) email.
+</Tip>
+
+---
+
+## Company Timezone and Language
+
+Setting the correct timezone is critical for time-based workflow accuracy. All scheduled emails and task due dates are calculated relative to midnight in your selected timezone.
+
+If you hire internationally and need different timezones for different employees, you can override the timezone at the individual employee level in their profile — Camino will use the employee-level timezone when it exists, and fall back to the workspace default otherwise.
+
+The **Default Language** setting controls the language of system-generated text (button labels, status messages, email footers). Currently supported languages include English, French, Spanish, German, and Portuguese. Custom content you write — task descriptions, welcome messages, template sections — is always displayed as written regardless of this setting.

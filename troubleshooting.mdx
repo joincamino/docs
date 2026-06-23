@@ -1,0 +1,232 @@
+---
+title: "Troubleshoot Common Camino Issues"
+sidebarTitle: "Troubleshooting"
+description: "Step-by-step fixes for the most common Camino issues, from portal delivery problems to integration errors and admin access."
+---
+
+Most issues in Camino have a quick fix once you know where to look. This guide walks you through the most common problems our customers encounter, organized by area. Work through the steps in order — the first suggestion resolves the issue most of the time.
+
+## New Hire Portal Issues
+
+<Accordion title="New hire didn't receive their portal invite email">
+  If a new hire tells you they never got their invitation, follow these steps:
+
+  <Steps>
+    <Step title="Ask them to check spam or junk mail">
+      Invite emails come from **no-reply@joincamino.com**. Many corporate email filters quarantine automated messages. Ask the new hire to search their spam or junk folder for "Camino" or the sender address.
+    </Step>
+    <Step title="Verify the email address on file">
+      In your Camino admin dashboard, open the employee's profile and confirm the email address is spelled correctly. A single typo means the message was delivered to the wrong inbox entirely.
+    </Step>
+    <Step title="Resend the portal invitation">
+      If the address is correct and the email isn't in spam, open the employee record, click the **⋯** menu, and select **Resend Portal Invite**. A fresh invitation will be sent immediately, and the previous link will be invalidated.
+    </Step>
+    <Step title="Check your domain's sending allowlist">
+      If the problem persists across multiple new hires, your company's email security gateway may be blocking messages from Camino's sending domain. Ask your IT team to allowlist **joincamino.com** as a trusted sender.
+    </Step>
+  </Steps>
+
+  <Note>
+    If you've resent the invite and the new hire still doesn't receive it within 10 minutes, contact support@joincamino.com so we can investigate on the sending side.
+  </Note>
+</Accordion>
+
+<Accordion title="New hire's portal shows the wrong name or start date">
+  The portal pulls the new hire's name and start date directly from their employee record in Camino.
+
+  <Steps>
+    <Step title="Open the employee record">
+      Go to **Employees**, find the person, and click into their profile.
+    </Step>
+    <Step title="Correct the field values">
+      Update the **First Name**, **Last Name**, or **Start Date** fields as needed and click **Save**.
+    </Step>
+    <Step title="Wait for the portal to refresh">
+      Changes propagate to the live portal within approximately **5 minutes**. Ask the new hire to reload their portal page after that window.
+    </Step>
+  </Steps>
+
+  <Tip>
+    If you imported the employee via HRIS and the data is wrong there too, correct it in your HRIS first and then trigger a manual sync in **Settings → Integrations** to pull the updated record into Camino.
+  </Tip>
+</Accordion>
+
+<Accordion title="Tasks are not appearing in the new hire's portal">
+  When a new hire's portal looks empty or incomplete, there are three common causes:
+
+  <Steps>
+    <Step title="Confirm a template has been assigned">
+      Open the employee's profile and check the **Onboarding Template** field. If it's blank, select the correct template and save. Tasks will populate in the portal within a few seconds.
+    </Step>
+    <Step title="Check that tasks have a due date or release condition set">
+      Some tasks are configured to appear only on or after a specific date relative to the start date. Go to **Templates**, open the assigned template, and review whether any tasks have a future release offset that hasn't been reached yet.
+    </Step>
+    <Step title="Verify workflow activation status">
+      If tasks are triggered by an automated workflow rather than assigned directly, open **Workflows** and confirm the relevant workflow is set to **Active**. Inactive or paused workflows won't fire, so the tasks they're meant to create will never appear.
+    </Step>
+  </Steps>
+</Accordion>
+
+## Admin & Template Issues
+
+<Accordion title="Dynamic fields showing as {{first_name}} instead of resolving">
+  When a dynamic field appears literally in the portal instead of being replaced with real data, there are two things to check:
+
+  <Steps>
+    <Step title="Ensure the employee record is complete">
+      Open the employee's profile and verify that every field referenced in your template is filled in. For example, if you use `{{manager_name}}`, the employee must have a manager assigned. Any blank field will cause the corresponding placeholder to remain unresolved.
+    </Step>
+    <Step title="Check the field syntax in your template">
+      Dynamic fields are case-sensitive and must use exactly double curly braces with no extra spaces. The supported fields are:
+      - `{{first_name}}`
+      - `{{start_date}}`
+      - `{{manager_name}}`
+      - `{{role}}`
+
+      Open **Templates**, find the affected template, and search for the placeholder. Correct any typos or formatting differences and save the template.
+    </Step>
+    <Step title="Reassign or refresh the employee's tasks">
+      If you've corrected the employee record and the template syntax looks right, navigate to the employee's task list and use **Refresh Dynamic Fields** (available in the **⋯** menu on the employee profile) to force a re-evaluation.
+    </Step>
+  </Steps>
+</Accordion>
+
+<Accordion title="Workflow not triggering as expected">
+  If an automated workflow isn't firing when you expect it to, work through these checks:
+
+  <Steps>
+    <Step title="Confirm the workflow is set to Active">
+      Go to **Workflows**, find the workflow in question, and check its status toggle. A workflow in **Draft** or **Paused** state will not fire under any conditions.
+    </Step>
+    <Step title="Check when the employee was added">
+      Workflows only apply to employees who are added to Camino **after** the workflow was activated. If you turned on a workflow after a new hire was already created, that employee won't be subject to it. You'll need to trigger the relevant actions manually for them.
+    </Step>
+    <Step title="Review the trigger conditions">
+      Open the workflow and examine its trigger type and conditions carefully. Time-based triggers fire relative to the employee's start date, so a trigger set to "3 days before start date" won't fire if today is already past that window. Event-based triggers require the specified event to occur — for example, a task completion trigger won't fire if the task hasn't been completed yet.
+    </Step>
+  </Steps>
+
+  <Warning>
+    Changing a workflow's trigger conditions only affects employees added after you save the changes. Existing in-progress onboardings will not be re-evaluated against the new conditions.
+  </Warning>
+</Accordion>
+
+<Accordion title="Template changes not reflecting for an existing new hire">
+  This is expected behavior. When you edit an onboarding template, those changes apply only to **future assignments** — new hires assigned the template after you save your edits. Employees who are already onboarding have their own independent copy of the tasks that were in place at the time of assignment.
+
+  To update tasks for a new hire who is already in progress:
+
+  <Steps>
+    <Step title="Open the employee's task list">
+      Navigate to **Employees**, select the employee, and click the **Tasks** tab.
+    </Step>
+    <Step title="Edit tasks directly">
+      You can add new tasks, modify existing task descriptions and due dates, or remove tasks that are no longer relevant — all without touching the original template.
+    </Step>
+    <Step title="Notify the new hire if needed">
+      If you add a new task, consider sending the new hire a quick heads-up via Slack or email so they know something new has appeared in their portal.
+    </Step>
+  </Steps>
+</Accordion>
+
+## Integration Issues
+
+<Accordion title="HRIS sync not importing new employees">
+  If employees added in your HRIS aren't appearing in Camino, follow these steps:
+
+  <Steps>
+    <Step title="Check your OAuth token">
+      HRIS connections use OAuth tokens that can expire or be revoked. Go to **Settings → Integrations**, find your HRIS connection, and check its status. If it shows **Disconnected** or **Token Expired**, click **Reconnect** and complete the authorization flow again.
+    </Step>
+    <Step title="Verify your role mapping rules">
+      Camino can be configured to only import employees whose role or department matches specific criteria. Open the integration settings and review your **Mapping Rules**. If the new employee's role in the HRIS doesn't match any rule, they'll be skipped during import.
+    </Step>
+    <Step title="Trigger a manual sync">
+      After reconnecting or updating mapping rules, click **Sync Now** to pull in the latest data from your HRIS immediately rather than waiting for the next scheduled sync.
+    </Step>
+  </Steps>
+</Accordion>
+
+<Accordion title="Slack messages not being delivered to new hires">
+  When Camino-triggered Slack messages aren't reaching new hires, the most common culprits are email mismatches and app authorization issues.
+
+  <Steps>
+    <Step title="Match the email addresses">
+      Camino looks up the new hire's Slack account by their email address. Open the employee's profile in Camino and compare the email there to the email associated with their Slack account. Even a minor difference (such as a work alias vs. a primary address) will prevent delivery. Correct the Camino record to match Slack exactly.
+    </Step>
+    <Step title="Verify the Camino Slack app is still authorized">
+      Slack app authorizations can be revoked by a Slack admin or expire. Go to **Settings → Integrations → Slack** and confirm the connection status shows **Connected**. If it doesn't, click **Reconnect** and have a Slack Workspace Admin re-authorize the app.
+    </Step>
+    <Step title="Check the employee's Slack account status">
+      If the new hire hasn't been invited to your Slack workspace yet, Camino can't deliver messages to them. Make sure the new hire has an active Slack account in your workspace before their Camino-triggered messages are scheduled to send.
+    </Step>
+  </Steps>
+</Accordion>
+
+<Accordion title="Google Drive links showing 'Access Denied' in the portal">
+  When new hires click a Google Drive link in their portal and see an **Access Denied** or **You need permission** error, the file sharing settings on the Drive side need to be updated.
+
+  <Steps>
+    <Step title="Open the file in Google Drive">
+      Find the document, slide deck, or folder you linked and open its sharing settings.
+    </Step>
+    <Step title="Set the sharing to your organization">
+      Click **Share**, then **Change to anyone at [your org] with the link** under the **General access** section. This allows anyone signed in with your company Google account to view the file without needing an explicit individual share.
+    </Step>
+    <Step title="Confirm the new hire is using their work Google account">
+      If the file is restricted to your org's domain, the new hire must be signed into their work Google account in the same browser session where they're viewing the portal. If they're signed in with a personal account, access will still be denied even with the correct sharing settings.
+    </Step>
+  </Steps>
+
+  <Warning>
+    Avoid setting Drive files to **Anyone on the internet with the link** for sensitive onboarding materials such as compensation documents or legal agreements. Use org-restricted sharing to keep those files secure.
+  </Warning>
+</Accordion>
+
+## Account & Access
+
+<Accordion title="Forgot password or can't log in">
+  <Steps>
+    <Step title="Use the Forgot Password flow">
+      On the Camino login page at **app.joincamino.com**, click **Forgot password?** and enter your email address. You'll receive a reset link within a few minutes. Check your spam folder if it doesn't arrive.
+    </Step>
+    <Step title="Make sure you're using your work email">
+      Camino accounts are tied to your work email address, not a personal one. Try the address that matches your company domain. If you're unsure which email is on file, ask another admin in your workspace to check under **Settings → Team Members**.
+    </Step>
+    <Step title="Check for SSO requirements">
+      If your organization has enabled Single Sign-On (SSO), you must log in through your identity provider (such as Google Workspace or Okta) rather than with a password directly. Look for the **Sign in with Google** or **Sign in with SSO** option on the login page.
+    </Step>
+  </Steps>
+</Accordion>
+
+<Accordion title="Admin lost access to the workspace">
+  If you've been locked out of your Camino workspace and can't recover access through the standard password reset flow, contact our support team directly.
+
+  <Steps>
+    <Step title="Email support">
+      Send a message to **support@joincamino.com** from your work email address. Include your **company name** and the **email address** associated with your Camino account so we can verify your identity quickly.
+    </Step>
+    <Step title="Ask a fellow admin to restore access">
+      If another admin in your workspace still has access, they can resend your invite or update your permissions under **Settings → Team Members** without needing to contact support.
+    </Step>
+  </Steps>
+
+  <Note>
+    For security reasons, we can only restore workspace access when the request comes from a verified work email address associated with the account. Personal email addresses cannot be used to authenticate ownership.
+  </Note>
+</Accordion>
+
+---
+
+<Note>
+  If your issue isn't covered here, email support@joincamino.com or use the chat widget in your dashboard.
+</Note>
+
+<CardGroup cols={2}>
+  <Card title="Frequently Asked Questions" icon="circle-question" href="/faq">
+    Browse answers to the most common questions about Camino's features, templates, and integrations.
+  </Card>
+  <Card title="Integrations Overview" icon="plug" href="/integrations/overview">
+    Learn how to connect Camino to your HRIS, Slack, Google Workspace, and more.
+  </Card>
+</CardGroup>
