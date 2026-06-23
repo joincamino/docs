@@ -68,29 +68,14 @@ You add tasks from two places: inside the template editor (for reusable tasks th
 
 ### Task Fields
 
-<ParamField path="title" type="string" required>
-  A short, action-oriented label for the task. Write it as an instruction: "Complete direct deposit setup" rather than "Direct deposit." Keep it under 80 characters so it displays cleanly in the checklist view.
-</ParamField>
-
-<ParamField path="description" type="string">
-  Additional context, step-by-step instructions, or links the assignee needs to complete the task. Supports rich text formatting. Use this field to include the URL, login instructions, or a brief explanation of why this task matters.
-</ParamField>
-
-<ParamField path="task_type" type="enum" required>
-  One of: `new_hire`, `manager`, or `admin`. Controls who sees the task and where it appears. Cannot be changed after the task is saved.
-</ParamField>
-
-<ParamField path="due_date" type="relative" required>
-  Relative to the employee's start date. Enter a value like `Day 1`, `Day 7`, `Day 30`, or `-3` (3 days before start date). See [Due Dates](#task-due-dates) for the full format reference.
-</ParamField>
-
-<ParamField path="required" type="boolean">
-  If `true`, this task is counted toward the onboarding completion percentage. If `false`, the task appears as optional in the checklist and is excluded from completion calculations. Defaults to `true`.
-</ParamField>
-
-<ParamField path="attachments" type="file[]">
-  Upload one or more files (PDF, DOCX, XLSX, PNG, JPG — max 25 MB each) that the assignee can download when completing the task. Useful for forms, policy documents, or reference materials.
-</ParamField>
+| Field | Required | Description |
+|---|---|---|
+| **Title** | Yes | A short, action-oriented label for the task. Write it as an instruction: "Complete direct deposit setup" rather than "Direct deposit." Keep it under 80 characters so it displays cleanly in the checklist view. |
+| **Description** | No | Additional context, step-by-step instructions, or links the assignee needs to complete the task. Supports rich text formatting. Use this field to include the URL, login instructions, or a brief explanation of why this task matters. |
+| **Task Type** | Yes | One of: **New Hire**, **Manager**, or **Admin/IT**. Controls who sees the task and where it appears. Cannot be changed after the task is saved. |
+| **Due Date** | Yes | Relative to the employee's start date. Enter a value like `Day 1`, `Day 7`, `Day 30`, or `-3` (3 days before start date). See [Due Dates](#task-due-dates) for the full format reference. |
+| **Required** | No | When enabled, this task is counted toward the onboarding completion percentage. When disabled, the task appears as optional in the checklist and is excluded from completion calculations. Enabled by default. |
+| **Attachments** | No | Upload one or more files (PDF, DOCX, XLSX, PNG, JPG — max 25 MB each) that the assignee can download when completing the task. Useful for forms, policy documents, or reference materials. |
 
 ---
 
